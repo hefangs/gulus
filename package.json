@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/he529564582/wheels/issues"
   },
-  "homepage": "https://github.com/he529564582/wheels#readme"
+  "homepage": "https://github.com/he529564582/wheels#readme",
+  "dependencies": {
+    "vue": "^2.6.10"
+  }
 }
