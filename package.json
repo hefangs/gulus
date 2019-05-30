@@ -4,6 +4,7 @@
   "description": "UI框架",
   "main": "index.js",
   "scripts": {
+    "start": "http-server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -22,5 +23,8 @@
   "homepage": "https://github.com/he529564582/wheels#readme",
   "dependencies": {
     "vue": "^2.6.10"
+  },
+  "devDependencies": {
+    "http-server": "^0.11.1"
   }
 }
