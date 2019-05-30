@@ -1,0 +1,23 @@
+{
+  "name": "wheels",
+  "version": "1.0.0",
+  "description": "UI框架",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/he529564582/wheels.git"
+  },
+  "keywords": [
+    "vue",
+    "ui"
+  ],
+  "author": "hefang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/he529564582/wheels/issues"
+  },
+  "homepage": "https://github.com/he529564582/wheels#readme"
+}
