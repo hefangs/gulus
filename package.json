@@ -25,6 +25,7 @@
     "vue": "^2.6.10"
   },
   "devDependencies": {
-    "http-server": "^0.11.1"
+    "http-server": "^0.11.1",
+    "parcel-bundler": "^1.12.3"
   }
 }
