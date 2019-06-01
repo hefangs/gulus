@@ -18,83 +18,90 @@ new Vue({
 
 //单元测试
 import chai from 'chai'
+import spies from 'chai-spies'
+import { version } from 'punycode';
+chai.use(spies)
 const expect = chai.expect
 {
     const Constructor = Vue.extend(Button)
-    const button = new Constructor({
+    const vm = new Constructor({
         propsData:{
             icon:'thumbs-up'
         }
     })
-    button.$mount()
-    let useElement = button.$el.querySelector('use')
+    vm.$mount()
+    let useElement = vm.$el.querySelector('use')
     let href = useElement.getAttribute('xlink:href')
     expect(href).to.eq('#i-thumbs-up')
-    button.$el.remove()
-    button.$destroy()
+    vm.$el.remove()
+    vm.$destroy()
 }
 
 {
     const Constructor = Vue.extend(Button)
-    const button = new Constructor({
+    const vm = new Constructor({
         propsData:{
             icon:'setting',
             loading:true
         }
     })
-    button.$mount()
-    let useElement = button.$el.querySelector('use')
+    vm.$mount()
+    let useElement = vm.$el.querySelector('use')
     let href = useElement.getAttribute('xlink:href')
     expect(href).to.eq('#i-loading')
-    button.$el.remove()
-    button.$destroy()
+    vm.$el.remove()
+    vm.$destroy()
 } 
 
 {
     const div = document.createElement('div')
     document.body.appendChild(div)
     const Constructor = Vue.extend(Button)
-    const button = new Constructor({
+    const vm = new Constructor({
         propsData:{
             icon:'setting',
             loading:true
         }
     })
-    button.$mount(div)
-    let svg = button.$el.querySelector('svg')
+    vm.$mount(div)
+    let svg = vm.$el.querySelector('svg')
     let {order} = window.getComputedStyle(svg)
     expect(order).to.eq('1')
-    button.$el.remove()
-    button.$destroy()
+    vm.$el.remove()
+    vm.$destroy()
 } 
 
 {
     const div = document.createElement('div')
     document.body.appendChild(div)
     const Constructor = Vue.extend(Button)
-    const button = new Constructor({
+    const vm = new Constructor({
         propsData:{
             icon:'setting',
             loading:true,
             iconPosition:'right'
         }
     })
-    button.$mount(div)
-    let svg = button.$el.querySelector('svg')
+    vm.$mount(div)
+    let svg = vm.$el.querySelector('svg')
     let {order} = window.getComputedStyle(svg)
     expect(order).to.eq('2')
-    button.$el.remove()
-    button.$destroy()
+    vm.$el.remove()
+    vm.$destroy()
 } 
 
 {
     const Constructor = Vue.extend(Button)
-    const gButton = new Constructor({
+    const vm = new Constructor({
         propsData:{
             icon:'setting'
         }
     })
-    gButton.$mount()
-
+    vm.$mount()
+    let spy = chai.spy(function(){})
+    vm.$on('click',spy)
+    let button = vm.$el
+    vm.$el.click()
+    expect(spy).to.have.been.called()
 
 }
