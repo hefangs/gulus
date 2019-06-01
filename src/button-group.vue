@@ -6,7 +6,7 @@
 <script>
 export default {
     mounted(){
-        console.log(this.$children);   
+        // console.log(this.$children);   
     }
 }
 </script>
