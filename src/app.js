@@ -101,7 +101,7 @@ const expect = chai.expect
     let spy = chai.spy(function(){})
     vm.$on('click',spy)
     let button = vm.$el
-    vm.$el.click()
+    button.click()
     expect(spy).to.have.been.called()
 
 }
