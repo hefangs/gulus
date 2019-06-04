@@ -75,7 +75,8 @@ describe('Input', () => {
           let event = new Event(eventName);
           Object.defineProperty(
             event, 'target', {
-              value: {value: 'hi'}, enumerable: true
+              value: {value: 'hi'}, 
+              enumerable: true
             }
           )
           let inputElement = vm.$el.querySelector('input')
