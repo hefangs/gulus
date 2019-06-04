@@ -1,16 +1,16 @@
 <template >
     <div class="wrapper" :class="{error}">
         <input type="text" :value="value" :disabled="disabled" :readonly="readonly"
-        @change="$emit('change',$event)"
-        @input="$emit('change',$event)"
-        @focus="$emit('change',$event)"
-        @blur="$emit('change',$event)"
+        @change="$emit('change',$event.target.value)"
+        @input="$emit('input',$event.target.value)"
+        @focus="$emit('focus',$event.target.value)"
+        @blur="$emit('blur',$event.target.value)"
         >
         <template v-if="error">
-        <g-icon name="error" class="icon-error"></g-icon>
-        <span class="errorMessage">{{error}}</span>
+            <icon name="error" class="icon-error"></icon>
+            <span class="errorMessage">{{error}}</span>
         </template>
-    </div>
+    </div> 
 </template>
 <script>
     import Icon from './icon.vue';
@@ -61,10 +61,14 @@
                 box-shadow: inset 1 1px 3px $box-shadow-color;
                 outline: none;
             }
-             &:disabled{
+             &[disabled] {
                  border-color: #aaa;
                  color: #aaa;
                  cursor: not-allowed;
+             }
+             &[readonly] {
+                 border-color: #ccc;
+                 color: #ccc;
              }
         }
         &.error{
