@@ -1,6 +1,5 @@
 <template>
-    <div class="col" :class="[`col-${span}`,offset && `offset-${offset}`]"
-     :style="{paddingLeft:gutter/2 +'px',paddingRight:gutter/2 +'px'}>
+    <div class="col" :style="colStyle" :class="colClass">
         <slot></slot>
     </div>
 </template>
@@ -38,6 +37,26 @@
             },
              gutter:{
                 type:[Number,String]
+            }
+        },
+        data(){
+            return{
+                gutter:0,
+            }
+        },
+        computed:{
+            colClass(){
+                let { span,offset} = this
+                return [
+                    span && `col-${span}`,
+                    offset && `offset-${offset}`
+                     ]
+            },
+            colStyle(){
+                return{
+                  paddingLeft:this.gutter/2 +'px',
+                  paddingRight:this.gutter/2 +'px',
+                }
             }
         }
     }
