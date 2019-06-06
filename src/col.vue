@@ -16,14 +16,29 @@
             &.#{$class-prefix}#{$n} {
                 width: ($n/24) * 100%
             }
-        }
+        } 
         $class-prefix:offset-;
         @for $n from 1 through 24 {
             &.#{$class-prefix}#{$n} {
                 margin-left: ($n/24) * 100%
             }
         }
+         @media(max-width: 576px) {
+        $class-prefix:col-phone-;
+        @for $n from 1 through 24 {
+            &.#{$class-prefix}#{$n} {
+                width: ($n/24) * 100%
+            }
+        }
+        $class-prefix:offset-phone-;
+        @for $n from 1 through 24 {
+            &.#{$class-prefix}#{$n} {
+                margin-left: ($n/24) * 100%
+            }
+        }
+        }
     }
+   
 </style>
 <script>
     export default {
@@ -37,6 +52,19 @@
             },
              gutter:{
                 type:[Number,String]
+            },
+            phone:{
+                type:Object, 
+                validator(value){
+                    let keys = Object.keys[value]
+                    let valid  = true
+                    keys.forEach(key =>{
+                        if (['span','offset'].includes(key)) {
+                            valid = false
+                        }
+                    })
+                    return valid
+                }
             }
         },
         data(){
