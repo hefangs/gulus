@@ -35,14 +35,26 @@ new Vue({
         loading3:false,
     },
     created(){
-        
+        // this.$toast('<p>你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好<strong>hi</strong></p>',{
+        //     enableHtml: true
+        // })
     },
     methods:{
         inputChange(e){
             console.log(e.target.value);   
         },
         showToast(){
-            this.$toast('我是message')
+            this.$toast('你好',{
+                enableHtml: true
+            })
+            // this.$toast('我是message',{
+            //     closeButton:{
+            //          text:'知道',
+            //         callback(){
+            //             console.log('用户说他知道了')
+            //         }
+            //     }
+            // })          
         }
     }
 })
