@@ -35,26 +35,25 @@ new Vue({
         loading3:false,
     },
     created(){
-        // this.$toast('<p>你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好<strong>hi</strong></p>',{
-        //     enableHtml: true
-        // })
+
     },
     methods:{
         inputChange(e){
             console.log(e.target.value);   
         },
         showToast(){
-            this.$toast('你好',{
-                enableHtml: true
+            this.$toast('你的智商需要充值!', {
+                position:'top',
+                enableHtml:false,
+                closeButton:{
+                    text:'关闭',
+                    callback (){
+                        console.log('他说已经充值了')
+                    }
+                },
+                autoClose:true,
+                autoCloseDelay: 3
             })
-            // this.$toast('我是message',{
-            //     closeButton:{
-            //          text:'知道',
-            //         callback(){
-            //             console.log('用户说他知道了')
-            //         }
-            //     }
-            // })          
         }
     }
 })
