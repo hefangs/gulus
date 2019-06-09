@@ -9,37 +9,40 @@
 </template>
 <script>
     export default {
-       name:'GuluTabsHead',
-       inject:['eventBus'],
-       created(){
-           this.$emit('update:selected', 'tabs-head 抛出的数据')
-       },
-       mounted(){
-           this.eventBus.$on('update:selected',(item,vm) => {
-               let {width,height,top,left} =vm.$el.getBoundingClientRect()
-               this.$refs.line.style.width = `${width}px`
-               this.$refs.line.style.left = `${left}px`
-           })
-       }
+        name: 'GuluTabsHead',
+        inject: ['eventBus'],
+        created () {
+        this.eventBus.$on('update:selected', (item, vm) => {
+            let {width, height, top, left} = vm.$el.getBoundingClientRect()
+            // console.log(width, height, top, left)
+            this.$refs.line.style.width = `${width}px`
+            this.$refs.line.style.left = `${left}px`
+            })
+        }
     }
 </script>
-<style lang="scss" scoped>
-     $tab-height: 40px;
-     $blue:blue;
+<style scoped lang="scss">
+    $tab-height: 40px;
+    $blue: blue;
+    $border-color: #ddd;
     .tabs-head {
         display: flex;
-        justify-content: flex-start;
         height: $tab-height;
-        align-items: center;
+        justify-content: flex-start;
         position: relative;
-        > .line{
+        border-bottom: 1px solid $border-color;
+        > .line {
             position: absolute;
             bottom: 0;
-            border-bottom: $blue solid 1px;
+            border-bottom: 1px solid $blue;
             transition: all 350ms;
         }
         > .actions-wrapper {
             margin-left: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 1em;
         }
     }
 </style>
