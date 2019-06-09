@@ -13,23 +13,30 @@
        inject:['eventBus'],
        created(){
            this.$emit('update:selected', 'tabs-head 抛出的数据')
+       },
+       mounted(){
+           this.eventBus.$on('update:selected',(item,vm) => {
+               let {width,height,top,left} =vm.$el.getBoundingClientRect()
+               this.$refs.line.style.width = `${width}px`
+               this.$refs.line.style.left = `${left}px`
+           })
        }
     }
 </script>
 <style lang="scss" scoped>
      $tab-height: 40px;
-     $color:#00bbf0;
+     $blue:blue;
     .tabs-head {
         display: flex;
+        justify-content: flex-start;
         height: $tab-height;
-        justify-content: flex-end;
         align-items: center;
         position: relative;
         > .line{
             position: absolute;
             bottom: 0;
-            border-bottom: $color solid 1px;
-            width: 100px;
+            border-bottom: $blue solid 1px;
+            transition: all 350ms;
         }
         > .actions-wrapper {
             margin-left: auto;
