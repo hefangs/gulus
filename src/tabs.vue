@@ -4,6 +4,7 @@
     </div>
 </template>
 <script>
+import Vue from 'vue'
     export default {
        name:'GuluTabs',
        props:{
@@ -19,14 +20,24 @@
                 }
            }
        },
+       data(){
+           return{
+               eventBus:new Vue()
+           }
+       },
+       provide(){
+           return{
+             eventBus:this.eventBus  
+           }
+       },
        created(){
-           this.$emit('update:selected')
+        //    this.$emit('update:selected')
        }
     }
 </script>
 <style lang="scss" scoped>
     .tabs{
-
+  
     }
 </style>
 
