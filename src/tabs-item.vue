@@ -7,17 +7,17 @@
     export default {
         name: 'GuluTabsItem',
         inject: ['eventBus'],
-        data () {
-            return {
-                active: false
+            data () {
+                return {
+                    active: false
             }
         },
         props: {
             disabled: {
                 type: Boolean,
                 default: false
-            },
-                name: {
+        },
+            name: {
                 type: String | Number,
                 required: true
             }
@@ -30,28 +30,29 @@
             }
         },
         created () {
-            this.eventBus.$on('update:selected', (name) => {
-            this.active = name === this.name;
-        })
+                this.eventBus.$on('update:selected', (name) => {
+                this.active = name === this.name;
+            })
         },
         methods: {
             xxx () {
-                this.eventBus.$emit('update:selected', this.name)
+                this.eventBus.$emit('update:selected', this.name, this)
             }
         }
     }
-</script>
+    </script>
 <style lang="scss" scoped>
+    $blue: blue;
     .tabs-item {
         flex-shrink: 0;
         padding: 0 1em;
         cursor: pointer;
         height: 100%;
-        margin-left: auto;
         display: flex;
         align-items: center;
         &.active {
-            background: red;
+            color: $blue;
+            font-weight: bold;
         }
     }
 </style>
