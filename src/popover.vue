@@ -1,5 +1,5 @@
 <template>
-    <div class="popover" @click="onClick">
+    <div class="popover" @click.stop="onClick">
         <slot class="contentWrapper" name="content" v-if="visible"></slot>
         <slot></slot>
     </div>
@@ -14,7 +14,16 @@
        },
         methods:{
             onClick(){
-                this.visible = !this.visible
+                this.visible = !this.visible  
+                if(this.visible === true){
+                    this.$nextTick(() =>{
+                        let eventHandler = () => {
+                            this.visible = false
+                            document.removeEventListener('click',eventHandler)
+                        }
+                        document.addEventListener('click',eventHandler) 
+                    })
+                }
             }
         }
     }
