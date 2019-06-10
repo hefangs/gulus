@@ -8,11 +8,10 @@
         name: 'GuluTabsBody',
         inject: ['eventBus'],
         created(){
-    }
+        }
   }
 </script>
-<style lang="scss" scoped>
-    .tabs-body{
-        
+<style>
+    .tabs-body {
     }
 </style>

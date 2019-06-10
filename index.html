@@ -109,13 +109,13 @@
             <g-button @click="showToast3">Bottom</g-button>
         </div> -->
         <div>
-            <g-tabs selected="sprots" :selected.sync ="selectedTab">
+            <g-tabs selected="sports" :selected.sync ="selectedTab">
                 <g-tabs-head>
                     <template slot="actions">
                         <g-button>设置</g-button>
                     </template>
-                    <g-tabs-item name="woman"></g-icon>美女</g-tabs-item>
-                    <g-tabs-item name="finance" disabled>财经</g-tabs-item>
+                    <g-tabs-item name="woman" disabled></g-icon>美女</g-tabs-item>
+                    <g-tabs-item name="finance" >财经</g-tabs-item>
                     <g-tabs-item name="sports">体育</g-tabs-item>
                 </g-tabs-head>
                 <g-tabs-body>
