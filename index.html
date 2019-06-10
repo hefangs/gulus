@@ -21,16 +21,16 @@
             --border-color:#999;
             --border-color-hover:#666;
         }   
-        /* #app{
-            margin: 20px;
-        } */
+        #app{
+            margin: 50px;
+        }
         body{
             font-size: var(--font-size)
         } 
     </style>
     <style>
         .box{
-            margin: 20px;
+            margin: 100px;
         }
         .demo{
             border: 1px solid rebeccapurple;
@@ -40,7 +40,7 @@
 </head>
 <body>
     <div id="app">
-        <!-- <div class="box">
+         <!-- <div class="box">
             <g-button :loading="loading1" @click="loading1 = !loading1">按钮</g-button>    
             <g-button :loading="loading2" @click="loading2 = !loading2" icon="setting">按钮</g-button>
             <g-button :loading="loading3" @click="loading3 = !loading3" icon="thumbs-up" icon-position="right">按钮</g-button>     
@@ -107,7 +107,7 @@
             <g-button @click="showToast1">Top</g-button>
             <g-button @click="showToast2">Middle</g-button>
             <g-button @click="showToast3">Bottom</g-button>
-        </div> -->
+        </div> 
         <div>
             <g-tabs selected="sports" :selected.sync ="selectedTab">
                 <g-tabs-head>
@@ -124,6 +124,32 @@
                     <g-tabs-pane name="sports">体育相关</g-tabs-pane>
                 </g-tabs-body>
             </g-tabs>
+        </div> -->
+        <div class="box">
+            <g-popover>
+                <template slot="content">
+                    <div>Top popover</div>
+                </template>
+                <g-button>Top</g-button>
+            </g-popover>
+            <g-popover>
+                <template slot="content">
+                    <div>Bottom popover</div>
+                </template>
+                <g-button>Bottom</g-button>
+            </g-popover>
+            <g-popover>
+                <template slot="content">
+                    <div>Left popover</div>
+                </template>
+                <g-button>Left</g-button>
+            </g-popover>
+            <g-popover>
+                <template slot="content">
+                    <div>Right popover</div>
+                </template>
+                <g-button>Right</g-button>
+            </g-popover>
         </div>
     </div>    
     <script src="./src/app.js"></script>
