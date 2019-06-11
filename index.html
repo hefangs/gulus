@@ -33,7 +33,7 @@
             margin: 100px;
         }
         .box1{
-            padding: 100px;
+            padding: 50px;
         }
         .demo{
             border: 1px solid rebeccapurple;
@@ -154,6 +154,33 @@
                 <g-button>Right</g-button>
             </g-popover>
         </div>
+        <div class="box1">
+            <g-popover position="top" trigger="hover">
+                <template slot="content">
+                    <div>Top popover</div>
+                </template>
+                <g-button>Top</g-button>
+            </g-popover>
+            <g-popover position="bottom" trigger="hover">
+                <template slot="content">
+                    <div>Bottom popover</div>
+                </template>
+                <g-button>Bottom</g-button>
+            </g-popover>
+            <g-popover position="left" trigger="hover">
+                <template slot="content">
+                    <div>Left popover</div>
+                </template>
+                <g-button>Left</g-button>
+            </g-popover>
+            <g-popover position="right" trigger="hover">
+                <template slot="content">
+                    <div>Right popover</div>
+                </template>
+                <g-button>Right</g-button>
+            </g-popover>
+        </div>
+        
     </div>    
     <script src="./src/app.js"></script>
 </body>
