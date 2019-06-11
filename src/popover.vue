@@ -8,6 +8,10 @@
     </span>
   </div>
 </template>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 76e8256ebd45d5dcb31fbfde55a2352e0d73d40c
 <script>
     export default {
         name: "GuluPopover",
