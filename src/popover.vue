@@ -4,7 +4,7 @@
         <slot name="content" :close="close"></slot>
         </div>
         <span ref="triggerWrapper" style="display:inline-block">
-        <slot></slot>
+            <slot></slot>
         </span>
     </div>
 </template>
