@@ -51,8 +51,7 @@
         },
         mounted () {
             this.checkChildren()
-            this.selecteTab()
-                
+            this.selecteTab()     
         }
     }
 </script>
