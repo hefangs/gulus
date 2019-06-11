@@ -1,7 +1,7 @@
 <template>
   <div class="popover" ref="popover">
     <div ref="contentWrapper" class="content-wrapper" v-if="visible" :class="{[`position-${position}`]:true}">
-      <slot name="content"></slot>
+      <slot name="content" :close="close"></slot>
     </div>
     <span ref="triggerWrapper" style="display:inline-block">
       <slot></slot>
@@ -151,43 +151,49 @@
         left: 10px;
         }
         &::before {
-        border-top-color: black;
-        top: 100%;
+            border-bottom: none;
+            border-top-color: black;
+            top: 100%;
         }
         &::after {
-        border-top-color: white;
-        top: calc(100% - 1px);
+            border-bottom: none;
+            border-top-color: white;
+            top: calc(100% - 1px);
         }
     }
     &.position-bottom {
-        margin-top: 10px;
+            margin-top: 10px;
         &::before, &::after {
-        left: 10px;
+            left: 10px;
         }
         &::before {
-        border-bottom-color: black;
-        bottom: 100%;
+            border-top: none;
+            border-bottom-color: black;
+            bottom: 100%;
         }
         &::after {
-        border-bottom-color: white;
-        bottom: calc(100% - 1px);
+            border-top: none;
+            border-bottom-color: white;
+            bottom: calc(100% - 1px);
         }
     }
     &.position-left {
-        transform: translateX(-100%);
-        margin-left: -10px;
+            transform: translateX(-100%);
+            margin-left: -10px;
         &::before, &::after {
             transform: translateY(-50%);
             top: 50%;
       }
       &::before {
-        border-left-color: black;
+          border-right: none;
+          border-left-color: black;
         left: 100%;
       }
       &::after {
-        border-left-color: white;
-        left: calc(100% - 1px);
-      }
+          border-right: none;
+          border-left-color: white;
+          left: calc(100% - 1px);
+        }
     }
     &.position-right {
         margin-left: 10px;
@@ -196,10 +202,12 @@
             top: 50%;
             }
         &::before {
+            border-left: none;
             border-right-color: black;
             right: 100%;
             }
         &::after {
+            border-left: none;
             border-right-color: white;
             right: calc(100% - 1px);
             }
