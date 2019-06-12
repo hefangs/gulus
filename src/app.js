@@ -50,7 +50,8 @@ new Vue({
         loading1:false,
         loading2:true,
         loading3:false,
-        selectedTab:'sports'
+        selectedTab:'sports',
+        selectedTab1:['2','1'],
     },
     created(){
 
