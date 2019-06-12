@@ -17,6 +17,10 @@ import func from 'vue';
             title: {
                 type: String,
                 required: true
+            },
+            name:{
+                type:String,
+                required:true
             }
         },
         data () {
@@ -26,9 +30,11 @@ import func from 'vue';
         },
         inject :['eventBus'],
         mounted (){
-            this.eventBus && this.eventBus.$on('update:selectd',(vm) =>{
-                if(vm !== this) {
+            this.eventBus && this.eventBus.$on('update:selectd',(name) =>{ 
+                if(name !== this.name) {
                     this.close()
+                }else{
+                   this.show() 
                 }
             })
         },
@@ -37,13 +43,15 @@ import func from 'vue';
                 if(this.open) {
                     this.open = false
                 }else {
-                    this.open = true
-                    this.eventBus && this.eventBus.$emit('update:selectd',this)
+                    this.eventBus && this.eventBus.$emit('update:selectd',this.name)
                 }
             },
             close () {
                 this.open = false
-            }
+            },
+            show () {
+                this.open = true
+            } 
         }
     }
 </script>

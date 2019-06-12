@@ -11,6 +11,9 @@ import Vue from 'vue'
             single:{
                 type:Boolean,
                 default:false
+            },
+            selected:{
+                type:String
             }
         },
         data () {
@@ -19,12 +22,13 @@ import Vue from 'vue'
             }
         },
         provide () {
-            if(this.single){
-                return {
-                    eventBus :this.eventBus
-                }
+            return {
+                eventBus :this.eventBus
             }
-        }
+        },
+        mounted () {
+            this.eventBus.$emit('update:selectd',this.selected)
+        },
     }
 </script>
 <style lang="scss" scoped>
