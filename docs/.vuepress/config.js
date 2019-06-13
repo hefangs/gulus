@@ -25,10 +25,9 @@ module.exports = {
                 title: '组件',
                 collapsable: false,
                 children: [
-                    '/component/button'
+                    '/components/button'
                 ]
-              },
-
+            },
         ]
       }
   }
